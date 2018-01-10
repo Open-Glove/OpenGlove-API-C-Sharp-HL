@@ -378,13 +378,22 @@ namespace OpenGlove_API_C_Sharp_HL.OGServiceReference {
                 private string GloveHashField;
                 
                 [System.Runtime.Serialization.OptionalFieldAttribute()]
-                private OpenGlove_API_C_Sharp_HL.OGServiceReference.Glove.Configuration.Profile.IMU_Settings IMUSettingsField;
-                
-                [System.Runtime.Serialization.OptionalFieldAttribute()]
                 private System.Collections.Generic.Dictionary<string, string> MappingsField;
                 
                 [System.Runtime.Serialization.OptionalFieldAttribute()]
                 private string ProfileNameField;
+                
+                [System.Runtime.Serialization.OptionalFieldAttribute()]
+                private bool imuCalibrationStatusField;
+                
+                [System.Runtime.Serialization.OptionalFieldAttribute()]
+                private string imuModelField;
+                
+                [System.Runtime.Serialization.OptionalFieldAttribute()]
+                private bool imuStatusField;
+                
+                [System.Runtime.Serialization.OptionalFieldAttribute()]
+                private bool rawDataField;
                 
                 public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
                     get {
@@ -448,19 +457,6 @@ namespace OpenGlove_API_C_Sharp_HL.OGServiceReference {
                 }
                 
                 [System.Runtime.Serialization.DataMemberAttribute()]
-                public OpenGlove_API_C_Sharp_HL.OGServiceReference.Glove.Configuration.Profile.IMU_Settings IMUSettings {
-                    get {
-                        return this.IMUSettingsField;
-                    }
-                    set {
-                        if ((object.ReferenceEquals(this.IMUSettingsField, value) != true)) {
-                            this.IMUSettingsField = value;
-                            this.RaisePropertyChanged("IMUSettings");
-                        }
-                    }
-                }
-                
-                [System.Runtime.Serialization.DataMemberAttribute()]
                 public System.Collections.Generic.Dictionary<string, string> Mappings {
                     get {
                         return this.MappingsField;
@@ -486,104 +482,64 @@ namespace OpenGlove_API_C_Sharp_HL.OGServiceReference {
                     }
                 }
                 
+                [System.Runtime.Serialization.DataMemberAttribute()]
+                public bool imuCalibrationStatus {
+                    get {
+                        return this.imuCalibrationStatusField;
+                    }
+                    set {
+                        if ((this.imuCalibrationStatusField.Equals(value) != true)) {
+                            this.imuCalibrationStatusField = value;
+                            this.RaisePropertyChanged("imuCalibrationStatus");
+                        }
+                    }
+                }
+                
+                [System.Runtime.Serialization.DataMemberAttribute()]
+                public string imuModel {
+                    get {
+                        return this.imuModelField;
+                    }
+                    set {
+                        if ((object.ReferenceEquals(this.imuModelField, value) != true)) {
+                            this.imuModelField = value;
+                            this.RaisePropertyChanged("imuModel");
+                        }
+                    }
+                }
+                
+                [System.Runtime.Serialization.DataMemberAttribute()]
+                public bool imuStatus {
+                    get {
+                        return this.imuStatusField;
+                    }
+                    set {
+                        if ((this.imuStatusField.Equals(value) != true)) {
+                            this.imuStatusField = value;
+                            this.RaisePropertyChanged("imuStatus");
+                        }
+                    }
+                }
+                
+                [System.Runtime.Serialization.DataMemberAttribute()]
+                public bool rawData {
+                    get {
+                        return this.rawDataField;
+                    }
+                    set {
+                        if ((this.rawDataField.Equals(value) != true)) {
+                            this.rawDataField = value;
+                            this.RaisePropertyChanged("rawData");
+                        }
+                    }
+                }
+                
                 public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
                 
                 protected void RaisePropertyChanged(string propertyName) {
                     System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
                     if ((propertyChanged != null)) {
                         propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-                    }
-                }
-                
-                [System.Diagnostics.DebuggerStepThroughAttribute()]
-                [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-                [System.Runtime.Serialization.DataContractAttribute(Name="Glove.Configuration.Profile.IMU_Settings", Namespace="http://schemas.datacontract.org/2004/07/OpenGloveWCF")]
-                [System.SerializableAttribute()]
-                public partial class IMU_Settings : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-                    
-                    [System.NonSerializedAttribute()]
-                    private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-                    
-                    [System.Runtime.Serialization.OptionalFieldAttribute()]
-                    private bool calibrationStatusField;
-                    
-                    [System.Runtime.Serialization.OptionalFieldAttribute()]
-                    private bool imuStatusField;
-                    
-                    [System.Runtime.Serialization.OptionalFieldAttribute()]
-                    private string nameModelField;
-                    
-                    [System.Runtime.Serialization.OptionalFieldAttribute()]
-                    private bool rawDataField;
-                    
-                    public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-                        get {
-                            return this.extensionDataField;
-                        }
-                        set {
-                            this.extensionDataField = value;
-                        }
-                    }
-                    
-                    [System.Runtime.Serialization.DataMemberAttribute()]
-                    public bool calibrationStatus {
-                        get {
-                            return this.calibrationStatusField;
-                        }
-                        set {
-                            if ((this.calibrationStatusField.Equals(value) != true)) {
-                                this.calibrationStatusField = value;
-                                this.RaisePropertyChanged("calibrationStatus");
-                            }
-                        }
-                    }
-                    
-                    [System.Runtime.Serialization.DataMemberAttribute()]
-                    public bool imuStatus {
-                        get {
-                            return this.imuStatusField;
-                        }
-                        set {
-                            if ((this.imuStatusField.Equals(value) != true)) {
-                                this.imuStatusField = value;
-                                this.RaisePropertyChanged("imuStatus");
-                            }
-                        }
-                    }
-                    
-                    [System.Runtime.Serialization.DataMemberAttribute()]
-                    public string nameModel {
-                        get {
-                            return this.nameModelField;
-                        }
-                        set {
-                            if ((object.ReferenceEquals(this.nameModelField, value) != true)) {
-                                this.nameModelField = value;
-                                this.RaisePropertyChanged("nameModel");
-                            }
-                        }
-                    }
-                    
-                    [System.Runtime.Serialization.DataMemberAttribute()]
-                    public bool rawData {
-                        get {
-                            return this.rawDataField;
-                        }
-                        set {
-                            if ((this.rawDataField.Equals(value) != true)) {
-                                this.rawDataField = value;
-                                this.RaisePropertyChanged("rawData");
-                            }
-                        }
-                    }
-                    
-                    public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-                    
-                    protected void RaisePropertyChanged(string propertyName) {
-                        System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-                        if ((propertyChanged != null)) {
-                            propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-                        }
                     }
                 }
             }

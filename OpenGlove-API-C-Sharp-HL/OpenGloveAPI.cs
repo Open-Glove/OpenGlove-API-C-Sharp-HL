@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading;
@@ -65,16 +66,18 @@ namespace OpenGlove_API_C_Sharp_HL
                 float valueX, valueY, valueZ;
                 string[] words;
 
+               
                 WebSocketClient.OnMessage += (sender, e) => {
-
+                   
                     if (e.Data != null)
                     {
                         words = e.Data.Split(',');
-                        try
-                        {
+                            
                             switch (words[0])
                             {
                                 case "f":
+                                
+
                                     mapping = Int32.Parse(words[1]);
                                     value = Int32.Parse(words[2]);
                                     fingersFunction?.Invoke(mapping, value);
@@ -104,16 +107,12 @@ namespace OpenGlove_API_C_Sharp_HL
                                     break;
                             }
 
-                        }
-                        catch
-                        {
-                            Console.WriteLine("ERROR: BAD FORMAT");
-                        }
                     }
                 };
                 WebSocketClient.Connect();
                 WebSocketActive = true;
                 while (WebSocketActive == true) { }
+                
             }
         }
 
